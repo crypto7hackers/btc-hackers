@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>연결 중...</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            // --- [이 부분만 채널별로 수정] ---
+            const channel = "크립토해커스"; // 또는 ""
+            const phone = "01086956230"; 
+            const formUrl = "https://forms.gle/KtmC7oS7tdvPC1Cr8"; 
+            // -----------------------------
+
+            // 요청하신 멀티라인 문자 양식 (\n은 줄바꿈입니다)
+            const smsBody = `[${channel}]\n\n트레이더 구원\n텔레그램 입장 신청합니다.\n(실시간 관점, 대응법 및 매매기록 공유)`;
+            
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+            if (isMobile) {
+                // 모바일: 문자로 이동
+                window.location.href = `sms:${phone}?body=${encodeURIComponent(smsBody)}`;
+            } else {
+                // PC: 설문지로 이동
+                window.location.href = formUrl;
+            }
+        };
+    </script>
+</head>
+<body>
+    <p>잠시 후 이동합니다. 이동하지 않으면 <a href="javascript:location.reload()">여기</a>를 클릭하세요.</p>
+</body>
+</html>
